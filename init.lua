@@ -97,7 +97,7 @@ tmw_slimes.animate = function(ent)
 	local land_movement = (minetest.registered_entities[ent.name].mesh == "slime_land.b3d") or not is_liquid_below
 	if velocity.y ~= 0 then
 		if not land_movement and (math.abs(velocity.x) > math.abs(velocity.y) or math.abs(velocity.z) > math.abs(velocity.y)) then
-			mobs.set_animation(ent, "move")
+			mobs:set_animation(ent, "move")
 			return
 		end
 		if velocity.y > 0 then
