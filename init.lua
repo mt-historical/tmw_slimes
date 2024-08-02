@@ -1,3 +1,5 @@
+local S = minetest.get_translator(minetest.get_current_modname())
+
 tmw_slimes = {}
 tmw_slimes.path = minetest.get_modpath("tmw_slimes").."/slimes/"
 tmw_slimes.colors = {}
