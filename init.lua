@@ -4,7 +4,7 @@ tmw_slimes.colors = {}
 
 
 minetest.register_craftitem("tmw_slimes:live_nucleus", {
-	description = "Living Nucleus",
+	description = S("Living Nucleus"),
 	inventory_image = "tmw_slime_nucleus.png"
 })
 
@@ -12,12 +12,12 @@ tmw_slimes.add_slime = function(string, aquatic)
 	local proper_name = string.upper(string.sub(string,1,1))..string.sub(string,2,-1)
 	minetest.register_craftitem("tmw_slimes:"..string.."_goo", {
 		inventory_image = "tmw_slime_goo.png^[colorize:"..tmw_slimes.colors[string],
-		description = proper_name.." Goo",
+		description = S(proper_name.." Goo"),
 		groups = {slime = 1},
 	})
 	minetest.register_node("tmw_slimes:"..string.."_goo_block", {
 		tiles = {"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors[string].."^[colorize:#0000:25"},
-		description = proper_name.." Goo Block",
+		description = S(proper_name.." Goo Block"),
 		drawtype = "allfaces_optional",
 		use_texture_alpha = true,
 		groups = {slippery = 2, crumbly=3, oddly_breakable_by_hand = 1},
@@ -34,7 +34,7 @@ tmw_slimes.add_slime = function(string, aquatic)
 	})
 	
 	dofile(tmw_slimes.path..string..".lua")
-	mobs:register_egg("tmw_slimes:"..string.."_slime", proper_name.." Slime", "tmw_slime_".."inventory.png^[colorize:"..tmw_slimes.colors[string]..
+	mobs:register_egg("tmw_slimes:"..string.."_slime", S(proper_name.." Slime"), "tmw_slime_".."inventory.png^[colorize:"..tmw_slimes.colors[string]..
 		(aquatic and "^(tmw_slime_aquatic_inventory.png^[colorize:"..tmw_slimes.colors[string].."^[colorize:#FFF:96)" or ""), 
 	0)
 	minetest.register_craft({
@@ -116,22 +116,29 @@ tmw_slimes.animate = function(ent)
 end
 
 --Land model
+-- S("Poisonous Slime"); S("Poisonous Slime Goo"); S("Poisonous Slime Goo Block")
 tmw_slimes.colors["poisonous"] = "#205:200"
 tmw_slimes.add_slime("poisonous")
+-- S("Jungle Slime"); S("Jungle Slime Goo"); S("Jungle Slime Goo Block")
 tmw_slimes.colors["jungle"] = "#0A1:180"
 tmw_slimes.add_slime("jungle")
+-- S("Savannah Slime"); S("Savannah Slime Goo"); S("Savannah Slime Goo Block")
 tmw_slimes.colors["savannah"] = "#204004:200"
 tmw_slimes.add_slime("savannah")
+-- S("Icy Slime"); S("Icy Slime Goo"); S("Icy Slime Goo Block")
 tmw_slimes.colors["icy"] = "#8BF:160"
 tmw_slimes.add_slime("icy")
 
 --Land model (underground)
 
+-- S("Mineral Slime"); S("Mineral Slime Goo"); S("Mineral Slime Goo Block")
 tmw_slimes.colors["mineral"] = "#584000:225"
 tmw_slimes.add_slime("mineral")
+-- S("Dark Slime"); S("Dark Slime Goo"); S("Dark Slime Goo Block")
 tmw_slimes.colors["dark"] = "#000:220"
 tmw_slimes.add_slime("dark")
 
+-- S("Alien Slime"); S("Alien Slime Goo"); S("Alien Slime Goo Block")
 if minetest.get_modpath("other_worlds") then
 	tmw_slimes.colors["alien"] = "#800:220"
 	tmw_slimes.add_slime("alien", true)
@@ -139,15 +146,19 @@ end
 
 --Liquid model
 
+-- S("Cloud Slime"); S("Cloud Slime Goo"); S("Cloud Slime Goo Block")
 tmw_slimes.colors["cloud"] = "#EEF:180"
 tmw_slimes.add_slime("cloud", true)
 
+-- S("Algae Slime"); S("Algae Slime Goo"); S("Algae Slime Goo Block")
 tmw_slimes.colors["algae"] = "#0C9:180"
 tmw_slimes.add_slime("algae", true)
 
+-- S("Ocean Slime"); S("Ocean Slime Goo"); S("Ocean Slime Goo Block")
 tmw_slimes.colors["ocean"] = "#00C:200"
 tmw_slimes.add_slime("ocean", true)
 
+-- S("Lava Slime"); S("Lava Slime Goo"); S("Lava Slime Goo Block")
 tmw_slimes.colors["lava"] = "#F80:190"
 tmw_slimes.add_slime("lava", true)
 
