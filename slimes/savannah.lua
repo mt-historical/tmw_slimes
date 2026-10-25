@@ -11,13 +11,17 @@ mobs:register_mob("tmw_slimes:savannah_slime", {
 	hp_min = 20,
 	hp_max = 40,
 	armor = 180,
-	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.4, 0.2},
-	visual_size = {x = 2, y = 2},
+	collisionbox = { -0.2, -0.01, -0.2, 0.2, 0.4, 0.2 },
+	visual_size = { x = 2, y = 2 },
 	visual = "mesh",
-	mesh = "slime_land.b3d",
-	blood_texture = "tmw_slime_goo.png^[colorize:"..tmw_slimes.colors["savannah"],
+	mesh = "slime_land.glb",
+	blood_texture = "tmw_slime_goo.png^[colorize:" .. tmw_slimes.colors["savannah"],
 	textures = {
-		{"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["savannah"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["savannah"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["savannah"]},
+		{
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["savannah"],
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["savannah"],
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["savannah"],
+		},
 	},
 	makes_footstep_sound = false,
 	walk_velocity = 0.5,
@@ -26,7 +30,7 @@ mobs:register_mob("tmw_slimes:savannah_slime", {
 	jump = true,
 	view_range = 15,
 	drops = {
-		{name = "tmw_slimes:savannah_goo", chance = 1, min = 0, max = 2},
+		{ name = "tmw_slimes:savannah_goo", chance = 1, min = 0, max = 2 },
 	},
 	water_damage = 0,
 	lava_damage = 8,
@@ -39,7 +43,7 @@ mobs:register_mob("tmw_slimes:savannah_slime", {
 		fall_start = 42,
 		fall_end = 62,
 		jump_start = 63,
-		jump_end = 83
+		jump_end = 83,
 	},
 	do_custom = function(self)
 		tmw_slimes.animate(self)
@@ -47,23 +51,23 @@ mobs:register_mob("tmw_slimes:savannah_slime", {
 	end,
 	on_die = function(self, pos)
 		tmw_slimes.drop_items(self, pos)
-	end
+	end,
 })
 
-minetest.override_item("tmw_slimes:savannah_goo", {on_use = minetest.item_eat(1)})
+core.override_item("tmw_slimes:savannah_goo", { on_use = core.item_eat(1) })
 
-if minetest.registered_items["mesecons_materials:glue"] then
-	minetest.register_craft({
+if core.registered_items["mesecons_materials:glue"] then
+	core.register_craft({
 		type = "cooking",
 		output = "mesecons_materials:glue",
-		recipe = "tmw_slimes:savannah_goo"
+		recipe = "tmw_slimes:savannah_goo",
 	})
 end
 
 mobs:spawn({
 	name = "tmw_slimes:savannah_slime",
 	nodes = {
-		"default:dirt_with_dry_grass"
+		"default:dirt_with_dry_grass",
 	},
 	min_light = 0,
 	max_light = 16,

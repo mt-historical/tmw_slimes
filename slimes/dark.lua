@@ -11,13 +11,17 @@ mobs:register_mob("tmw_slimes:dark_slime", {
 	hp_min = 20,
 	hp_max = 40,
 	armor = 180,
-	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.4, 0.2},
-	visual_size = {x = 2, y = 2},
+	collisionbox = { -0.2, -0.01, -0.2, 0.2, 0.4, 0.2 },
+	visual_size = { x = 2, y = 2 },
 	visual = "mesh",
-	mesh = "slime_land.b3d",
-	blood_texture = "tmw_slime_goo.png^[colorize:"..tmw_slimes.colors["dark"],
+	mesh = "slime_land.glb",
+	blood_texture = "tmw_slime_goo.png^[colorize:" .. tmw_slimes.colors["dark"],
 	textures = {
-		{"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["dark"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["dark"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["dark"]},
+		{
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["dark"],
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["dark"],
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["dark"],
+		},
 	},
 	makes_footstep_sound = false,
 	walk_velocity = 0.5,
@@ -27,7 +31,7 @@ mobs:register_mob("tmw_slimes:dark_slime", {
 	view_range = 15,
 	--fly_in = {"default:water_source", "default:water_flowing", "default:river_water_source", "default:river_water_flowing"},
 	drops = {
-		{name = "tmw_slimes:dark_goo", chance = 1, min = 0, max = 2},
+		{ name = "tmw_slimes:dark_goo", chance = 1, min = 0, max = 2 },
 	},
 	water_damage = 0,
 	lava_damage = 0,
@@ -40,7 +44,7 @@ mobs:register_mob("tmw_slimes:dark_slime", {
 		fall_start = 42,
 		fall_end = 62,
 		jump_start = 63,
-		jump_end = 83
+		jump_end = 83,
 	},
 	do_custom = function(self)
 		tmw_slimes.animate(self)
@@ -48,36 +52,37 @@ mobs:register_mob("tmw_slimes:dark_slime", {
 	end,
 	on_die = function(self, pos)
 		tmw_slimes.drop_items(self, pos)
-	end
+	end,
 })
 
-minetest.override_item("tmw_slimes:dark_goo", {on_use = function(item, player, ...)
-	if tmw_slimes.poisoned_players then
-		tmw_slimes.poisoned_players[player:get_player_name()] = 3
-		minetest.item_eat(-5)(item, player,...)
-	else
-		minetest.item_eat(-20)(item, player,...)
-	end
-end})
+core.override_item("tmw_slimes:dark_goo", {
+	on_use = function(item, player, ...)
+		if tmw_slimes.poisoned_players then
+			tmw_slimes.poisoned_players[player:get_player_name()] = 3
+			core.item_eat(-5)(item, player, ...)
+		else
+			core.item_eat(-20)(item, player, ...)
+		end
+	end,
+})
 
-if minetest.get_modpath("mythology") then
-	minetest.register_craft({
+if core.get_modpath("mythology") then
+	core.register_craft({
 		type = "cooking",
 		output = "mythology:evil_matter",
 		recipe = "tmw_slimes:dark_goo_block",
-		cooktime = 40
+		cooktime = 40,
 	})
-	
 end
 
-local g = table.copy(minetest.registered_nodes["tmw_slimes:dark_goo_block"].groups)
+local g = table.copy(core.registered_nodes["tmw_slimes:dark_goo_block"].groups)
 g.harmful_slime = tmw_slimes.medium_dmg
-minetest.override_item("tmw_slimes:dark_goo_block", {groups=table.copy(g)})
+core.override_item("tmw_slimes:dark_goo_block", { groups = table.copy(g) })
 
 mobs:spawn({
 	name = "tmw_slimes:dark_slime",
 	nodes = {
-		"default:stone"
+		"default:stone",
 	},
 	min_light = 0,
 	max_light = 16,

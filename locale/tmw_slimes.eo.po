@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eo\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Living Nucleus"
+msgstr "Muka vivokerno"
+
+msgid "Poisonous Slime"
+msgstr "Venena muko"
+
+msgid "Poisonous Slime Goo"
+msgstr "Venena mukaĵo"
+
+msgid "Poisonous Slime Goo Block"
+msgstr "Venena mukaĵa bloko"
+
+msgid "Jungle Slime"
+msgstr "Ĝongala muko"
+
+msgid "Jungle Slime Goo"
+msgstr "Ĝongala mukaĵo"
+
+msgid "Jungle Slime Goo Block"
+msgstr "Ĝongala mukaĵa bloko"
+
+msgid "Savannah Slime"
+msgstr "Herbebena muko"
+
+msgid "Savannah Slime Goo"
+msgstr "Herbebena mukaĵo"
+
+msgid "Savannah Slime Goo Block"
+msgstr "Herbebena mukaĵa bloko"
+
+msgid "Icy Slime"
+msgstr "Glacia muko"
+
+msgid "Icy Slime Goo"
+msgstr "Glacia mukaĵo"
+
+msgid "Icy Slime Goo Block"
+msgstr "Glacia mukaĵa bloko"
+
+msgid "Mineral Slime"
+msgstr "Minerala muko"
+
+msgid "Mineral Slime Goo"
+msgstr "Minerala mukaĵo"
+
+msgid "Mineral Slime Goo Block"
+msgstr "Minerala mukaĵa bloko"
+
+msgid "Dark Slime"
+msgstr "Malluma muko"
+
+msgid "Dark Slime Goo"
+msgstr "Malluma mukaĵo"
+
+msgid "Dark Slime Goo Block"
+msgstr "Malluma mukaĵa bloko"
+
+msgid "Alien Slime"
+msgstr "Eksterterana muko"
+
+msgid "Alien Slime Goo"
+msgstr "Eksterterana mukaĵo"
+
+msgid "Alien Slime Goo Block"
+msgstr "Eksterterana mukaĵa bloko"
+
+msgid "Cloud Slime"
+msgstr "Nuba muko"
+
+msgid "Cloud Slime Goo"
+msgstr "Nuba mukaĵo"
+
+msgid "Cloud Slime Goo Block"
+msgstr "Nuba mukaĵa bloko"
+
+msgid "Algae Slime"
+msgstr "Alga muko"
+
+msgid "Algae Slime Goo"
+msgstr "Alga mukaĵo"
+
+msgid "Algae Slime Goo Block"
+msgstr "Alga mukaĵa bloko"
+
+msgid "Ocean Slime"
+msgstr "Mara muko"
+
+msgid "Ocean Slime Goo"
+msgstr "Mara mukaĵo"
+
+msgid "Ocean Slime Goo Block"
+msgstr "Mara mukaĵa bloko"
+
+msgid "Lava Slime"
+msgstr "Lafa mukaĵa bloko"
+
+msgid "Lava Slime Goo"
+msgstr "Lafa mukaĵo"
+
+msgid "Lava Slime Goo Block"
+msgstr "Lafa mukaĵa bloko"
+
+#: mod.conf
+msgid "Slimes"
+msgstr ""
+
+#: mod.conf
+msgid "Adds several types of slimes inspired by TheManaWorld."
+msgstr ""

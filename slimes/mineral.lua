@@ -11,13 +11,17 @@ mobs:register_mob("tmw_slimes:mineral_slime", {
 	hp_min = 20,
 	hp_max = 40,
 	armor = 180,
-	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.4, 0.2},
-	visual_size = {x = 2, y = 2},
+	collisionbox = { -0.2, -0.01, -0.2, 0.2, 0.4, 0.2 },
+	visual_size = { x = 2, y = 2 },
 	visual = "mesh",
-	mesh = "slime_land.b3d",
-	blood_texture = "tmw_slime_goo.png^[colorize:"..tmw_slimes.colors["mineral"],
+	mesh = "slime_land.glb",
+	blood_texture = "tmw_slime_goo.png^[colorize:" .. tmw_slimes.colors["mineral"],
 	textures = {
-		{"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["mineral"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["mineral"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["mineral"]},
+		{
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["mineral"],
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["mineral"],
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["mineral"],
+		},
 	},
 	makes_footstep_sound = false,
 	walk_velocity = 0.5,
@@ -27,7 +31,7 @@ mobs:register_mob("tmw_slimes:mineral_slime", {
 	view_range = 15,
 	--fly_in = {"default:water_source", "default:water_flowing", "default:river_water_source", "default:river_water_flowing"},
 	drops = {
-		{name = "tmw_slimes:mineral_goo", chance = 1, min = 0, max = 2},
+		{ name = "tmw_slimes:mineral_goo", chance = 1, min = 0, max = 2 },
 	},
 	water_damage = 0,
 	lava_damage = 8,
@@ -40,7 +44,7 @@ mobs:register_mob("tmw_slimes:mineral_slime", {
 		fall_start = 42,
 		fall_end = 62,
 		jump_start = 63,
-		jump_end = 83
+		jump_end = 83,
 	},
 	do_custom = function(self)
 		tmw_slimes.animate(self)
@@ -48,19 +52,19 @@ mobs:register_mob("tmw_slimes:mineral_slime", {
 	end,
 	on_die = function(self, pos)
 		tmw_slimes.drop_items(self, pos)
-	end
+	end,
 })
 
-minetest.register_craft({
+core.register_craft({
 	type = "cooking",
 	output = "default:steel_ingot",
-	recipe = "tmw_slimes:mineral_goo"
+	recipe = "tmw_slimes:mineral_goo",
 })
 
 mobs:spawn({
 	name = "tmw_slimes:mineral_slime",
 	nodes = {
-		"default:stone"
+		"default:stone",
 	},
 	min_light = 0,
 	max_light = 16,
