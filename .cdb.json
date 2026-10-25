@@ -1,0 +1,10 @@
+{
+	"$schema": "https://content.luanti.org/api/cdb_schema/",
+	"type": "MOD",
+	"title": "Slimes",
+	"short_description": "Adds several types of slimes",
+	"issue_tracker": "https://github.com/mt-historical/tmw_slimes/issues",
+	"repo": "https://github.com/mt-historical/tmw_slimes",
+	"license": "GPL-3.0-or-later",
+	"media_license": "CC-BY-4.0"
+}

@@ -1,0 +1,39 @@
+version = 1
+
+# Source Code
+[[annotations]]
+path = [
+	"**.lua",
+]
+SPDX-FileCopyrightText = [
+	"2019 Piezo_",
+]
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# Media files
+[[annotations]]
+path = [
+	"locale/**",
+	"textures/**",
+	"sounds/**",
+	"models/**",
+	"screenshot.png",
+]
+SPDX-FileCopyrightText = [
+	"2019 Piezo_",
+]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# Metadata/config files
+[[annotations]]
+path = [
+	".luacheckrc",
+	"flint.toml",
+	".github/**",
+	".gitattributes",
+	".cdb.json",
+	"README.md",
+	"mod.conf",
+]
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"

@@ -11,13 +11,16 @@ mobs:register_mob("tmw_slimes:alien_slime", {
 	hp_min = 20,
 	hp_max = 40,
 	armor = 180,
-	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.4, 0.2},
-	visual_size = {x = 2, y = 2},
+	collisionbox = { -0.2, -0.01, -0.2, 0.2, 0.4, 0.2 },
+	visual_size = { x = 2, y = 2 },
 	visual = "mesh",
-	mesh = "slime_liquid.b3d",
-	blood_texture = "tmw_slime_goo.png^[colorize:"..tmw_slimes.colors["alien"],
+	mesh = "slime_liquid.glb",
+	blood_texture = "tmw_slime_goo.png^[colorize:" .. tmw_slimes.colors["alien"],
 	textures = {
-		{"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["alien"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["alien"].."^[colorize:#FFF:96"},
+		{
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["alien"],
+			"tmw_slime_goo_block.png^[colorize:" .. tmw_slimes.colors["alien"] .. "^[colorize:#FFF:96",
+		},
 	},
 	makes_footstep_sound = false,
 	walk_velocity = 0.5,
@@ -26,9 +29,16 @@ mobs:register_mob("tmw_slimes:alien_slime", {
 	jump = true,
 	view_range = 15,
 	fly = true,
-	fly_in = {"air", "asteroid:atmos", "default:water_source", "default:water_flowing", "default:river_water_source", "default:river_water_flowing"},
+	fly_in = {
+		"air",
+		"asteroid:atmos",
+		"default:water_source",
+		"default:water_flowing",
+		"default:river_water_source",
+		"default:river_water_flowing",
+	},
 	drops = {
-		{name = "tmw_slimes:alien_goo", chance = 1, min = 0, max = 2},
+		{ name = "tmw_slimes:alien_goo", chance = 1, min = 0, max = 2 },
 	},
 	water_damage = 0,
 	lava_damage = 0,
@@ -41,7 +51,7 @@ mobs:register_mob("tmw_slimes:alien_slime", {
 		fall_start = 42,
 		fall_end = 62,
 		jump_start = 63,
-		jump_end = 83
+		jump_end = 83,
 	},
 	do_custom = function(self)
 		tmw_slimes.animate(self)
@@ -49,21 +59,23 @@ mobs:register_mob("tmw_slimes:alien_slime", {
 	end,
 	on_die = function(self, pos)
 		tmw_slimes.drop_items(self, pos)
-	end
+	end,
 })
 
-minetest.override_item("tmw_slimes:alien_goo", {on_use = function(item, player, ...)
-	if tmw_slimes.poisoned_players then
-		tmw_slimes.poisoned_players[player:get_player_name()] = 3
-		minetest.item_eat(-5)(item, player,...)
-	else
-		minetest.item_eat(-20)(item, player,...)
-	end
-end})
+core.override_item("tmw_slimes:alien_goo", {
+	on_use = function(item, player, ...)
+		if tmw_slimes.poisoned_players then
+			tmw_slimes.poisoned_players[player:get_player_name()] = 3
+			core.item_eat(-5)(item, player, ...)
+		else
+			core.item_eat(-20)(item, player, ...)
+		end
+	end,
+})
 
-local g = table.copy(minetest.registered_nodes["tmw_slimes:alien_goo_block"].groups)
+local g = table.copy(core.registered_nodes["tmw_slimes:alien_goo_block"].groups)
 g.harmful_slime = tmw_slimes.weak_dmg
-minetest.override_item("tmw_slimes:alien_goo_block", {groups=table.copy(g)})
+core.override_item("tmw_slimes:alien_goo_block", { groups = table.copy(g) })
 
 mobs:spawn({
 	name = "tmw_slimes:alien_slime",
